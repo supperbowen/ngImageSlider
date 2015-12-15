@@ -69,7 +69,7 @@
                         autoPlay: false
                     };
                     //call slider jquery plugin
-                    element.find('ul').slide(sliderOptions);
+                    element.find('ul.image-list').slide(sliderOptions);
                 }
             };
         }
