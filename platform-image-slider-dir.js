@@ -15,6 +15,7 @@
                     onDeleted: '&',
                     onChecked: '&'
                 },
+                templateUrl: 'platform-image-slider-dir.html',
                 require: 'ngModel',
                 link: function (scope, element, attrs, ngModel) {
                     var checkedItems = [];
