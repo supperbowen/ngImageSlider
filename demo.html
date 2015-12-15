@@ -2,23 +2,66 @@
 <html data-ng-app="demoApp">
 <head>
     <meta charset="utf-8"/>
-    <script src="build/react.js"></script>
-    <script src="build/react-dom.js"></script>
+    <style>
+        /* css 重置 */
+        *{margin:0; padding:0; list-style:none; }
+        body{ background:#fff; font:normal 12px/22px 宋体;  }
+        img{ border:0;  }
+        a{ text-decoration:none; color:#333;  }
+
+        /* 本例子css */
+        .picScroll-left{ width:450px;  overflow:hidden; position:relative;  border:1px solid #ccc;   }
+        .picScroll-left .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+        .picScroll-left .hd .prev,.picScroll-left .hd .next{ display:block;  width:5px; height:9px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+        .picScroll-left .hd .next{ background-position:0 -50px;  }
+        .picScroll-left .hd .prevStop{ background-position:-60px 0; }
+        .picScroll-left .hd .nextStop{ background-position:-60px -50px; }
+        .picScroll-left .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px; zoom:1; }
+        .picScroll-left .hd ul li{ float:left;  width:9px; height:9px; overflow:hidden; margin-right:5px; text-indent:-999px; cursor:pointer; background:url("images/icoCircle.gif") 0 -9px no-repeat; }
+        .picScroll-left .hd ul li.on{ background-position:0 0; }
+        .picScroll-left .bd{ padding:10px;   }
+        .picScroll-left .bd ul{ overflow:hidden; zoom:1; }
+        .picScroll-left .bd ul li{ margin:0 8px; float:left; _display:inline; overflow:hidden; text-align:center;  }
+        .picScroll-left .bd ul li .pic{ text-align:center; }
+        .picScroll-left .bd ul li .pic img{ width:120px; height:90px; display:block;  padding:2px; border:1px solid #ccc; }
+        .picScroll-left .bd ul li .pic a:hover img{ border-color:#999;  }
+        .picScroll-left .bd ul li .title{ line-height:24px;   }
+        ul{
+            width: 600px;
+            height: 100px;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-    <div data-ng-controller="demoController">
-
-    </div>
+<div class="picScroll-left" data-ng-controller="demoController">
+    <div data-platform-image-slider data-ng-model="images" max-size="5"></div>
+</div>
+<script type="application/javascript" src="lib/jquery1.42.min.js"></script>
+<script type="application/javascript" src="lib/jquery.SuperSlide.2.1.1.source.js"></script>
+<script type="application/javascript" src="lib/angular.js"></script>
+<script type="application/javascript" src="platform-image-slider-dir.js"></script>
 <script type="application/javascript">
-    var module = angular.module('demoApp',[]);
-    module.controller('demoController',['$scope',function($scope){
-
+    var module = angular.module('demoApp', ['platform']);
+    module.controller('demoController', ['$scope', function ($scope) {
+        $scope.images = [
+            {id: 1, path: './images/angular.jpg', description: 'picture 1'},
+            {id: 1, path: 'images/baidu.jpg', description: 'picture 2'},
+            {id: 1, path: 'images/barcode.jpg', description: 'picture 3'},
+            {id: 1, path: 'images/chrome.jpg', description: 'picture 4'},
+            {id: 1, path: 'images/cloud.jpg', description: 'picture 5'},
+            {id: 1, path: 'images/fire.jpg', description: 'picture 6'},
+            {id: 1, path: 'images/header-bar.png', description: 'picture 7'},
+            {id: 1, path: 'images/loading.gif', description: 'picture 8'},
+            {id: 1, path: 'images/supperbowen.jpg', description: 'picture 9'},
+            {id: 1, path: 'images/twitter.jpg', description: 'picture 10'},
+        ];
     }])
 </script>
 
-<script type="application/javascript" src="lib/jquery1.42.min.js"></script>
-<script type="application/javascript" src="lib/jquery.SuperSlide.2.1.1.js"></script>
-<script type="application/javascript" src="lib/angular.js"></script>
-<script type="application/javascript" src="platform-image-slider-dir.js"></script>
+
 </body>
 </html>

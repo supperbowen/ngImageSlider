@@ -1,8 +1,9 @@
 /*global angular, _*/
 (function (angular) {
     "use strict";
-    angular.module('platform').directive('platformImageSlider', [
-        function () {
+    angular.module('platform', []);
+    angular.module('platform').directive('platformImageSlider', ['$timeout',
+        function ($timeout) {
             return {
                 restrict: 'A',
                 scope: {
@@ -31,8 +32,20 @@
                     scope.onDeleted = scope.onDeleted || angular.noop;
                     scope.onSelect = scope.onSelect || angular.noop;
 
+                    var sliderOptions = {
+                        mainCell: 'ul',
+                        titCell: '.navigator',
+                        vis: parseInt(scope.maxSize),
+                        autoPlay: false,
+                        autoPage:true,effect:"left",trigger:"click"
+                    };
+
                     ngModel.$render = function $render() {
                         scope.imageList = ngModel.$viewValue;
+                        $timeout(function(){
+                            //call slider jquery plugin
+                            $(element[0]).slide(sliderOptions);
+                        });
                     };
                     scope.deleteItem = function deleteItem(item) {
                         if (!scope.enableDelete) {
@@ -65,12 +78,8 @@
                         return _.find(checkedItems, {_id: image._id});
                     };
 
-                    var sliderOptions = {
-                        vis: scope.maxSize,
-                        autoPlay: false
-                    };
-                    //call slider jquery plugin
-                    element.find('ul.image-list').slide(sliderOptions);
+
+
                 }
             };
         }
