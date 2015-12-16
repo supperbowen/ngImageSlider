@@ -4,7 +4,7 @@ encapsulate the opensoure slide controler of 'SuperSlide'
 
 usage
     js:
-        <script type="application/javascript">
+        <pre>
             var module = angular.module('demoApp', ['platform']);
             module.controller('demoController', ['$scope', function ($scope) {
                 $scope.images = [
@@ -20,11 +20,13 @@ usage
                     {id: 1, path: 'images/twitter.jpg', description: 'picture 10'},
                 ];
             }])
-        </script>
+        </pre>
     html:
-        <div data-ng-controller="demoController">
-            <div data-platform-image-slider data-ng-model="images" max-size="5"></div>
-        </div>   
+        </pre>
+            <div data-ng-controller="demoController">
+                <div data-platform-image-slider data-ng-model="images" max-size="5"></div>
+            </div>   
+        </pre>
         
  We will try to add more fecture on the directive later on, thank you!
  Bowen Liang
