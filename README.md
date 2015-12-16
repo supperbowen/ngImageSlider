@@ -29,11 +29,11 @@ Usage
       </div>   
         
  paramters:
- --------
+ ------
  max-size : number of visiable images
  
  
- 
+ --------
  We will try to add more fecture on the directive later on, thank you!
  Bowen Liang
  2012-12-16                   
