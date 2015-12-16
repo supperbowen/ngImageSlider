@@ -1,12 +1,15 @@
 # ngImageSlider
+for AngularJS
+-------------
+
 image slide for angular
 encapsulate the opensoure slide controler of 'SuperSlide'
 
-usage
+Usage
+------
     js:
-        ####Sending data to listeners:
-        var module = angular.module('demoApp', ['platform']);
-        module.controller('demoController', ['$scope', function ($scope) {
+      var module = angular.module('demoApp', ['platform']);
+      module.controller('demoController', ['$scope', function ($scope) {
             $scope.images = [
                 {id: 1, path: './images/angular.jpg', description: 'picture 1'},
                 {id: 1, path: 'images/baidu.jpg', description: 'picture 2'},
@@ -18,13 +21,19 @@ usage
                 {id: 1, path: 'images/loading.gif', description: 'picture 8'},
                 {id: 1, path: 'images/supperbowen.jpg', description: 'picture 9'},
                 {id: 1, path: 'images/twitter.jpg', description: 'picture 10'},
-            ];
-        }])
+             ];
+      }])
     html:
-        <div data-ng-controller="demoController">
-            <div data-platform-image-slider data-ng-model="images" max-size="5"></div>
-        </div>   
+      <div data-ng-controller="demoController">
+          <div data-platform-image-slider data-ng-model="images" max-size="5"></div>
+      </div>   
         
+ paramters:
+ --------
+ max-size : number of visiable images
+ 
+ 
+ 
  We will try to add more fecture on the directive later on, thank you!
  Bowen Liang
  2012-12-16                   
